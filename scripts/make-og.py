@@ -7,20 +7,24 @@ SANS = "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
 BOLD = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"
 MONO = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 
-image = Image.new("RGB", (1200, 630), "#f7f7f3")
+image = Image.new("RGB", (1200, 630), "#1d302d")
 draw = ImageDraw.Draw(image)
 font = lambda path, size: ImageFont.truetype(path, size)
-ink, muted, accent = "#1b2929", "#536362", "#aa3f30"
+paper, mint, muted, coral = "#f7f7f2", "#c6dcc8", "#b7c9bd", "#d77860"
 
-draw.rectangle((0, 0, 1200, 10), fill=ink)
-draw.text((72, 49), "parnuit.", font=font(BOLD, 39), fill=ink)
-draw.text((72, 136), "TAXE DE SÉJOUR  /  PRÉPARATION 2027", font=font(MONO, 17), fill=accent)
-draw.text((72, 199), "Quels sites doivent", font=font(BOLD, 69), fill=ink)
-draw.text((72, 281), "changer de tarif ?", font=font(BOLD, 69), fill=ink)
-draw.text((75, 389), "Un contrôle 2026 → 2027 sur votre parc.", font=font(SANS, 29), fill=muted)
-draw.text((75, 428), "Tarifs, actions et sources, site par site.", font=font(SANS, 29), fill=muted)
-draw.line((72, 513, 1128, 513), fill="#b7c5bb", width=2)
-draw.text((75, 542), "CAS RÉEL  ·  CARCASSONNE 4 ★", font=font(MONO, 18), fill=ink)
-draw.text((780, 537), "3,08 €  →  3,26 €", font=font(BOLD, 29), fill=accent)
+draw.rectangle((0, 0, 1200, 9), fill=coral)
+draw.rounded_rectangle((73, 55, 112, 94), radius=10, fill=paper)
+draw.text((83, 61), "D", font=font(BOLD, 28), fill="#1d302d")
+draw.ellipse((105, 61, 111, 67), fill=coral)
+draw.text((124, 51), "parnuit.", font=font(BOLD, 40), fill=paper)
+draw.text((75, 152), "BÊTA PRIVÉE  /  OUVERTURE PROCHAINE", font=font(MONO, 16), fill=coral)
+draw.text((70, 211), "La taxe de séjour", font=font(BOLD, 65), fill=paper)
+draw.text((70, 286), "de tout votre parc.", font=font(BOLD, 65), fill=mint)
+draw.text((74, 365), "Au même endroit.", font=font(BOLD, 54), fill=paper)
+draw.line((73, 470, 1125, 470), fill="#668174", width=2)
+draw.text((75, 501), "TARIFS", font=font(MONO, 18), fill=mint)
+draw.text((293, 501), "PORTAILS", font=font(MONO, 18), fill=mint)
+draw.text((534, 501), "ÉCHÉANCES", font=font(MONO, 18), fill=mint)
+draw.text((76, 550), "Une vue par établissement, avec la source derrière chaque réponse.", font=font(SANS, 24), fill=muted)
 image.save(OUT, optimize=True)
 print(OUT)

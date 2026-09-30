@@ -1,96 +1,111 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f7f3" />
-    <meta name="description" content="Parnuit aide les groupes hôteliers et résidences de tourisme à repérer les tarifs de taxe de séjour à mettre à jour en 2027, établissement par établissement, avec les délibérations en source." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Parnuit — Quels sites doivent changer de tarif en 2027 ?" />
-    <meta property="og:description" content="Un contrôle de taxe de séjour 2026 → 2027 sur votre parc. Tarifs, actions et sources, site par site." />
-    <meta property="og:image" content="https://parnuit.vercel.app/og-card.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>Parnuit — Tarifs de taxe de séjour 2027, site par site</title>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="#haut" aria-label="Parnuit, retour en haut">
-          <span class="brand__mark" aria-hidden="true"><span></span></span>
-          <span class="brand__word">parnuit<span>.</span></span>
-        </a>
-        <nav class="main-nav" aria-label="Navigation principale">
-          <a href="#cas-reel">Cas réel</a>
-          <a href="#livrable">Le livrable</a>
-          <a href="#pilote">Le pilote</a>
-        </nav>
-        <a class="header-cta" href="mailto:muller.tangae@gmail.com?subject=Parnuit%20%E2%80%94%20Contr%C3%B4le%20de%203%20%C3%A9tablissements&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9tudier%20un%20contr%C3%B4le%20de%20taxe%20de%20s%C3%A9jour%202027%20pour%20trois%20%C3%A9tablissements.%0A%0AGroupe%20%3A%0ANombre%20total%20de%20sites%20%3A%0ATrois%20communes%20%C3%A0%20examiner%20%3A%0A%0ABien%20%C3%A0%20vous%2C">Proposer 3 sites <span aria-hidden="true">↗</span></a>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1d302d" />
+  <meta name="description" content="Parnuit prépare une bêta pour les groupes d'hébergement : tarifs, portails et échéances de taxe de séjour réunis établissement par établissement." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://parnuit.vercel.app/" />
+  <meta property="og:title" content="Parnuit — La taxe de séjour de tout votre parc" />
+  <meta property="og:description" content="Vos établissements, leurs collectivités, leurs tarifs et leurs échéances. Bêta privée prochainement." />
+  <meta property="og:image" content="https://parnuit.vercel.app/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://parnuit.vercel.app/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Parnuit — La taxe de séjour de tout votre parc</title>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header" id="haut">
+    <div class="container header-inner">
+      <a class="brand" href="#haut" aria-label="Parnuit, retour en haut"><span class="brand__mark" aria-hidden="true"><span></span></span><span class="brand__word">parnuit<span>.</span></span></a>
+      <nav class="main-nav" aria-label="Navigation principale"><a href="#parcours">Le parcours</a><a href="#referentiel">Le référentiel</a><a href="#questions">Questions</a></nav>
+      <a class="header-cta" href="mailto:muller.tangae@gmail.com?subject=Acc%C3%A8s%20b%C3%AAta%20Parnuit&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%AAtre%20inform%C3%A9%20de%20l%27ouverture%20de%20la%20b%C3%AAta%20Parnuit.%0A%0ANom%20du%20groupe%20%3A%0ANombre%20d%27%C3%A9tablissements%20%3A%0ACommunes%20principales%20%3A%0A%0ABien%20%C3%A0%20vous%2C">Accès bêta <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
 
-    <main id="haut">
-      <section class="hero container" aria-labelledby="hero-title">
+  <main id="contenu">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow__dash" aria-hidden="true"></span> TAXE DE SÉJOUR <span class="eyebrow__sep" aria-hidden="true">/</span> PRÉPARATION 2027</div>
-          <h1 id="hero-title">Quels sites doivent changer de tarif en 2027&nbsp;?</h1>
-          <p class="hero-lead">Pour un groupe hôtelier ou de résidences, la réponse se joue collectivité par collectivité. Parnuit prépare une liste d’actions par établissement, avec les délibérations et les points à confirmer.</p>
-          <div class="hero-actions">
-            <a class="button button--primary" href="mailto:muller.tangae@gmail.com?subject=Parnuit%20%E2%80%94%20Contr%C3%B4le%20de%203%20%C3%A9tablissements&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9tudier%20un%20contr%C3%B4le%20de%20taxe%20de%20s%C3%A9jour%202027%20pour%20trois%20%C3%A9tablissements.%0A%0AGroupe%20%3A%0ANombre%20total%20de%20sites%20%3A%0ATrois%20communes%20%C3%A0%20examiner%20%3A%0A%0ABien%20%C3%A0%20vous%2C">Proposer 3 établissements <span aria-hidden="true">↗</span></a>
-            <a class="link-arrow" href="#cas-reel">Voir un contrôle réel <span aria-hidden="true">↓</span></a>
+          <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> BÊTA PRIVÉE · OUVERTURE PROCHAINE</span>
+          <h1 id="hero-title">La taxe de séjour de <em>tout votre parc.</em> Au même endroit.</h1>
+          <p class="hero-lead">Chaque établissement dépend d’une collectivité, d’un tarif et d’un calendrier différents. Parnuit prépare une seule vue pour retrouver quoi déclarer, où et quand — avec la source derrière chaque réponse.</p>
+          <div class="hero-actions"><a class="button button--light" href="mailto:muller.tangae@gmail.com?subject=Acc%C3%A8s%20b%C3%AAta%20Parnuit&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%AAtre%20inform%C3%A9%20de%20l%27ouverture%20de%20la%20b%C3%AAta%20Parnuit.%0A%0ANom%20du%20groupe%20%3A%0ANombre%20d%27%C3%A9tablissements%20%3A%0ACommunes%20principales%20%3A%0A%0ABien%20%C3%A0%20vous%2C">Demander un accès bêta <span aria-hidden="true">↗</span></a><a class="text-link text-link--light" href="#parcours">Découvrir le parcours <span aria-hidden="true">↓</span></a></div>
+          <p class="hero-note">Pour les équipes finance et exploitation des groupes hôteliers, résidences, campings et villages de vacances.</p>
+        </div>
+        <div class="hero-visual" aria-label="Illustration du regroupement des informations par établissement">
+          <div class="hero-visual__label"><span>LE PROBLÈME, VU DU SIÈGE</span><span>01 / 02 / 03</span></div>
+          <div class="source-stack" aria-hidden="true">
+            <div class="source-card"><span class="source-card__icon">01</span><div><strong>Les tarifs</strong><small>Une catégorie, une commune, une année</small></div><span class="source-card__arrow">↗</span></div>
+            <div class="source-card"><span class="source-card__icon">02</span><div><strong>Les portails</strong><small>Une démarche différente selon le site</small></div><span class="source-card__arrow">↗</span></div>
+            <div class="source-card"><span class="source-card__icon">03</span><div><strong>Les échéances</strong><small>Déclaration et reversement à suivre</small></div><span class="source-card__arrow">↗</span></div>
           </div>
-          <p class="hero-footnote">Pilote accompagné · Sur un périmètre convenu ensemble · Sans intégration à votre logiciel</p>
+          <div class="merge-line" aria-hidden="true"><span></span></div>
+          <div class="result-card"><div class="result-card__top"><span>PARNUIT / VUE DU PARC</span><span aria-hidden="true">●</span></div><strong>La prochaine action est claire.</strong><p>Chaque établissement, son calendrier et ses sources réunis au même endroit.</p></div>
+          <p class="visual-caption">Schéma du parcours prévu pour la bêta · Interface illustrative</p>
         </div>
-        <div class="hero-evidence" aria-label="Exemple vérifié de changement tarifaire à Carcassonne">
-          <div class="evidence-top"><span>EXTRAIT DE CONTRÔLE</span><span>CARCASSONNE · 2027</span></div>
-          <div class="evidence-title"><span>HÔTELS & RÉSIDENCES 4 ★</span><strong>Un tarif à mettre à jour.</strong></div>
-          <div class="evidence-amounts"><div><span>2026</span><strong>3,08 €</strong></div><span class="evidence-arrow" aria-hidden="true">→</span><div><span>2027</span><strong>3,26 €</strong></div></div>
-          <p class="evidence-caption">Montant total à collecter, par personne et par nuitée. Parts communales : 2,14 € → 2,26 €.</p>
-          <div class="evidence-decision"><span class="decision-dot" aria-hidden="true"></span><strong>ACTION</strong><span>Revoir le tarif paramétré pour 2027</span></div>
-          <div class="evidence-bottom"><span>À la même adresse, le 3 ★ reste à 2,45 € au total.</span><a href="#cas-reel">Voir les sources <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <div class="editorial-band"><div class="container editorial-band__inner"><span>LE VRAI SUJET</span><p>Le tarif est public. <strong>Savoir quelle action revient à quel site, à quelle date et sur quelle source</strong> prend encore du temps.</p></div></div>
+
+    <section class="journey-section section" id="parcours" aria-labelledby="journey-title"><div class="container">
+      <div class="section-heading"><span class="section-number">01 / LE PARCOURS</span><h2 id="journey-title">Du parc à la prochaine action.</h2><p>Une projection du parcours prévu pour la bêta, pensée pour la personne qui coordonne plusieurs établissements et plusieurs collectivités.</p></div>
+      <div class="walkthrough">
+        <div class="walkthrough-controls">
+          <div class="walkthrough-controls__top"><span>PARCOURS ILLUSTRATIF</span><button id="motion-toggle" class="motion-toggle" type="button" aria-label="Mettre l’animation en pause" aria-pressed="false">Pause <span aria-hidden="true">Ⅱ</span></button></div>
+          <div class="step-list" role="tablist" aria-label="Étapes du parcours bêta">
+            <button class="step-button is-active" type="button" role="tab" id="step-tab-1" aria-controls="step-panel-1" aria-selected="true" data-step="0"><span>01</span><strong>Renseigner le parc</strong><small>Les établissements d’abord.</small></button>
+            <button class="step-button" type="button" role="tab" id="step-tab-2" aria-controls="step-panel-2" aria-selected="false" tabindex="-1" data-step="1"><span>02</span><strong>Retrouver la collectivité</strong><small>Le bon interlocuteur pour chaque site.</small></button>
+            <button class="step-button" type="button" role="tab" id="step-tab-3" aria-controls="step-panel-3" aria-selected="false" tabindex="-1" data-step="2"><span>03</span><strong>Voir les échéances</strong><small>Un calendrier à l’échelle du parc.</small></button>
+            <button class="step-button" type="button" role="tab" id="step-tab-4" aria-controls="step-panel-4" aria-selected="false" tabindex="-1" data-step="3"><span>04</span><strong>Vérifier ce qui change</strong><small>Tarif, décision, source.</small></button>
+          </div>
+          <p class="walkthrough-disclaimer">Aperçu de conception. Les écrans présentés ne sont pas une application déjà accessible.</p>
         </div>
-      </section>
-
-      <div class="scope-strip"><div class="container scope-strip__inner"><span>UN SITE</span><span aria-hidden="true">→</span><span>UNE CATÉGORIE</span><span aria-hidden="true">→</span><span>UNE COLLECTIVITÉ</span><span aria-hidden="true">→</span><strong>UNE ACTION DOCUMENTÉE</strong></div></div>
-
-      <section class="case-section section container" id="cas-reel" aria-labelledby="case-title">
-        <div class="section-heading"><span class="section-index">01 / CAS RÉEL</span><h2 id="case-title">Le changement se cache dans la délibération.</h2><p>À Carcassonne, le conseil municipal a voté les tarifs 2027 dès mai 2026. Pour les hôtels et résidences 4 étoiles, le total publié passe de 3,08 € à 3,26 €. La catégorie 3 étoiles, elle, reste à 2,45 €.</p></div>
-        <div class="comparison" role="region" aria-label="Comparaison des tarifs publiés à Carcassonne" tabindex="0">
-          <div class="comparison__head"><span>CARCASSONNE · AU RÉEL · PAR PERSONNE ET PAR NUITÉE</span><span>2026 → 2027</span></div>
-          <table>
-            <thead><tr><th scope="col">Catégorie</th><th scope="col">Total 2026</th><th scope="col">Total 2027</th><th scope="col">Lecture</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Hôtel / résidence 4 ★</th><td data-label="Total 2026">3,08 €</td><td data-label="Total 2027">3,26 €</td><td data-label="Lecture"><span class="status status--change">À modifier</span></td></tr>
-              <tr><th scope="row">Hôtel / résidence 3 ★</th><td data-label="Total 2026">2,45 €</td><td data-label="Total 2027">2,45 €</td><td data-label="Lecture"><span class="status status--same">Inchangé</span></td></tr>
-            </tbody>
-          </table>
-          <div class="comparison__foot">Totaux incluant les taxes additionnelles départementale et régionale, tels qu’indiqués dans les deux actes. Cet exemple porte sur ces seules catégories à Carcassonne.</div>
+        <div class="walkthrough-stage">
+          <div class="stage-chrome"><span class="stage-chrome__dots" aria-hidden="true"><i></i><i></i><i></i></span><span>PARNUIT / APERÇU BÊTA</span><span class="stage-chrome__step">01 — 04</span></div>
+          <div class="stage-panel is-active" id="step-panel-1" role="tabpanel" aria-labelledby="step-tab-1" data-panel="0">
+            <div class="panel-kicker">VOTRE PARC</div><h3>Tout commence par vos établissements.</h3><p>Une liste commune pour le siège et les équipes qui exploitent les sites.</p>
+            <div class="sample-list"><div><span class="sample-type">RÉSIDENCE</span><strong>Établissement A</strong><small>Carcassonne · 4 étoiles</small><span class="sample-check">01</span></div><div><span class="sample-type">HÔTEL</span><strong>Établissement B</strong><small>Autre collectivité</small><span class="sample-check">02</span></div><div><span class="sample-type">CAMPING</span><strong>Établissement C</strong><small>Autre collectivité</small><span class="sample-check">03</span></div></div>
+          </div>
+          <div class="stage-panel" id="step-panel-2" role="tabpanel" aria-labelledby="step-tab-2" data-panel="1" hidden>
+            <div class="panel-kicker">RATTACHEMENT</div><h3>Chaque site retrouve sa règle locale.</h3><p>La commune de l’établissement est reliée à la collectivité qui perçoit la taxe.</p>
+            <div class="mapping-card"><div><span>ÉTABLISSEMENT</span><strong>Établissement A</strong><small>Carcassonne · résidence 4 ★</small></div><span class="mapping-arrow" aria-hidden="true">→</span><div><span>COLLECTIVITÉ</span><strong>Carcassonne</strong><small>Tarifs et modalités locales</small></div></div><div class="mapping-note"><span aria-hidden="true">✓</span> Le rattachement reste vérifiable avant toute publication.</div>
+          </div>
+          <div class="stage-panel" id="step-panel-3" role="tabpanel" aria-labelledby="step-tab-3" data-panel="2" hidden>
+            <div class="panel-kicker">CALENDRIER</div><h3>Une seule vue des dates à suivre.</h3><p>Déclarations et reversements seront rassemblés par établissement, avec la règle locale en source.</p>
+            <div class="agenda-card"><div class="agenda-card__head"><span>À PRÉPARER</span><span>PAR ÉTABLISSEMENT</span></div><div class="agenda-row"><span class="agenda-row__marker"></span><div><strong>Déclaration</strong><small>Établissement A · échéance locale à confirmer</small></div><span>À vérifier</span></div><div class="agenda-row"><span class="agenda-row__marker"></span><div><strong>Reversement</strong><small>Établissement B · calendrier de la collectivité</small></div><span>À vérifier</span></div></div>
+          </div>
+          <div class="stage-panel" id="step-panel-4" role="tabpanel" aria-labelledby="step-tab-4" data-panel="3" hidden>
+            <div class="panel-kicker">CHANGEMENT DOCUMENTÉ</div><h3>Vous voyez ce qui doit être revu.</h3><p>Exemple réel à Carcassonne : le total publié pour un hôtel ou une résidence 4 ★ augmente en 2027.</p>
+            <div class="change-card"><div><small>TOTAL 2026</small><strong>3,08 €</strong></div><span aria-hidden="true">→</span><div><small>TOTAL 2027</small><strong>3,26 €</strong></div></div><div class="change-action"><span>À REVOIR</span><strong>Le tarif paramétré pour 2027</strong></div><a class="source-inline" href="https://www.carcassonne.org/sites/default/files/actes-administratifs-2026-06/D%C3%A9lib%2018.pdf" target="_blank" rel="noopener noreferrer">Voir la délibération municipale 2027 <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <div class="source-row"><span>SOURCES MUNICIPALES</span><a href="https://www.carcassonne.org/sites/default/files/actes-administratifs-2025-07/D%C3%A9lib%2023.pdf" target="_blank" rel="noopener noreferrer">Délibération tarifs 2026, p. 2 <span aria-hidden="true">↗</span></a><a href="https://www.carcassonne.org/sites/default/files/actes-administratifs-2026-06/D%C3%A9lib%2018.pdf" target="_blank" rel="noopener noreferrer">Délibération tarifs 2027, p. 3 <span aria-hidden="true">↗</span></a></div>
-      </section>
+      </div>
+    </div></section>
 
-      <section class="deliverable-section section" id="livrable" aria-labelledby="deliverable-title"><div class="container">
-        <div class="section-heading section-heading--split"><div><span class="section-index">02 / LE LIVRABLE</span><h2 id="deliverable-title">Une réponse exploitable par le siège et par les sites.</h2></div><p>Une grille publique donne un montant. Votre équipe doit savoir à quel établissement il s’applique, s’il a changé et ce qu’elle doit faire avant sa période de perception.</p></div>
-        <div class="deliverable-grid">
-          <article class="deliverable-item"><span class="deliverable-item__num">01</span><h3>Tarif à paramétrer</h3><p>Catégorie de l’établissement, part communale, taxes additionnelles et total publié, avec l’année d’application.</p></article>
-          <article class="deliverable-item"><span class="deliverable-item__num">02</span><h3>Action à mener</h3><p>Changement, maintien ou point à confirmer. Le siège voit où intervenir ; chaque site sait pourquoi.</p></article>
-          <article class="deliverable-item"><span class="deliverable-item__num">03</span><h3>Preuve à conserver</h3><p>Lien vers la délibération ou la page officielle, date de lecture et réserve éventuelle sur le montant ou l’échéance.</p></article>
-        </div>
-        <div class="deliverable-note"><span class="deliverable-note__tag">LE POINT DE DÉPART</span><p>Les tarifs nationaux sont publiés par la DGFiP avant le 15 octobre. Les décisions locales peuvent être visibles plus tôt. Les dates de déclaration et de paiement sont à vérifier dans les modalités de chaque collectivité.</p><a href="https://www.impots.gouv.fr/taxe-de-sejour" target="_blank" rel="noopener noreferrer">Publication DGFiP <span aria-hidden="true">↗</span></a></div>
-      </div></section>
+    <section class="value-section section" aria-labelledby="value-title"><div class="container">
+      <div class="value-intro"><span class="section-number">02 / CE QUE LA BÊTA PRÉPARE</span><h2 id="value-title">Une réponse utile chaque mois, pas seulement en octobre.</h2></div>
+      <div class="value-grid"><article><span>01</span><h3>Le bon tarif</h3><p>La catégorie de votre établissement, l’année d’application et les taxes additionnelles, avec le texte qui permet de les contrôler.</p></article><article><span>02</span><h3>La bonne démarche</h3><p>Le portail ou la page officielle de la collectivité, le contact et les modalités à suivre pour déclarer.</p></article><article><span>03</span><h3>La prochaine échéance</h3><p>Les dates de déclaration et de paiement du parc dans une vue commune, avec des rappels prévus pour la bêta.</p></article></div>
+    </div></section>
 
-      <section class="pilot-section section container" id="pilote" aria-labelledby="pilot-title">
-        <div class="pilot-heading"><span class="section-index">03 / PILOTE 2027</span><h2 id="pilot-title">Commençons par trois établissements.</h2><p>Pas besoin de présenter tout le parc au premier échange. Trois sites de catégories et de collectivités différentes suffisent pour voir si la restitution aide vraiment votre équipe.</p></div>
-        <div class="pilot-process" aria-label="Déroulement du pilote"><div><span>1</span><p>Vous indiquez les établissements, leur commune et leur classement.</p></div><div><span>2</span><p>Nous rapprochons les tarifs publiés et les pièces locales disponibles.</p></div><div><span>3</span><p>Nous vous montrons les actions, les sources et les zones d’incertitude.</p></div></div>
-        <div class="pilot-cta"><div><strong>Votre prochain contrôle peut commencer ici.</strong><span>Écrivez-nous avec trois communes et le nombre de sites de votre groupe.</span></div><a class="button button--light" href="mailto:muller.tangae@gmail.com?subject=Parnuit%20%E2%80%94%20Contr%C3%B4le%20de%203%20%C3%A9tablissements&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9tudier%20un%20contr%C3%B4le%20de%20taxe%20de%20s%C3%A9jour%202027%20pour%20trois%20%C3%A9tablissements.%0A%0AGroupe%20%3A%0ANombre%20total%20de%20sites%20%3A%0ATrois%20communes%20%C3%A0%20examiner%20%3A%0A%0ABien%20%C3%A0%20vous%2C">Proposer 3 sites <span aria-hidden="true">↗</span></a></div>
-        <p class="pilot-disclosure">Parnuit est en construction. Le contrôle initial est réalisé avec accompagnement humain sur un périmètre défini ensemble. Parnuit n’effectue ni déclaration ni paiement pour votre compte.</p>
-      </section>
-    </main>
+    <section class="reference-section section" id="referentiel" aria-labelledby="reference-title"><div class="container reference-grid">
+      <div class="reference-copy"><span class="section-number">03 / LE RÉFÉRENTIEL</span><h2 id="reference-title">La couverture se construit, la confiance se vérifie.</h2><p>Une première base porte sur les 500 communes touristiques prioritaires de notre étude. Pour 488 d’entre elles, un site de référence a été repéré. Les fiches sont en revue avant toute mise à disposition dans la bêta.</p><p class="reference-fineprint">Mesures internes au 30 septembre 2026, sur un périmètre priorisé de 500 communes. « Site repéré » ne signifie pas fiche validée ni couverture nationale.</p></div>
+      <div class="reference-figures" aria-label="État de constitution du référentiel"><div><strong>500</strong><span>communes prioritaires<br />dans la base de travail</span></div><div><strong>488</strong><span>sites de référence<br />repérés sur ce périmètre</span></div><div><strong>376</strong><span>collecteurs identifiés<br />pour ces communes</span></div></div>
+    </div></section>
 
-    <footer class="site-footer"><div class="container footer-inner"><div><a class="brand brand--footer" href="#haut" aria-label="Parnuit, retour en haut"><span class="brand__mark" aria-hidden="true"><span></span></span><span class="brand__word">parnuit<span>.</span></span></a><p>La taxe de séjour, établissement par établissement.</p></div><div class="footer-links"><a href="#cas-reel">Cas réel</a><a href="#livrable">Livrable</a><a href="mailto:muller.tangae@gmail.com?subject=Contact%20Parnuit">Contact</a></div></div><div class="container footer-bottom"><span>© 2026 Parnuit · Projet indépendant en préparation</span><span>Aucun cookie de suivi</span></div></footer>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <section class="proof-section section" aria-labelledby="proof-title"><div class="container proof-grid"><div><span class="section-number">04 / UNE SOURCE, UNE DÉCISION</span><h2 id="proof-title">Un exemple qui change vraiment la préparation.</h2><p>À Carcassonne, le total 2027 publié pour les hôtels et résidences 4 étoiles passe de 3,08 € à 3,26 € par personne et par nuitée. La catégorie 3 étoiles reste à 2,45 €. C’est ce niveau de détail qu’une équipe doit pouvoir retrouver, vérifier et appliquer.</p><div class="proof-links"><a href="https://www.carcassonne.org/sites/default/files/actes-administratifs-2025-07/D%C3%A9lib%2023.pdf" target="_blank" rel="noopener noreferrer">Acte municipal 2026 ↗</a><a href="https://www.carcassonne.org/sites/default/files/actes-administratifs-2026-06/D%C3%A9lib%2018.pdf" target="_blank" rel="noopener noreferrer">Acte municipal 2027 ↗</a></div></div><div class="proof-note"><span>CARCASSONNE / AU RÉEL</span><div><small>HÔTEL OU RÉSIDENCE 4 ★</small><strong>3,08 € <i>→</i> <em>3,26 €</em></strong><p>Tarif total incluant les taxes additionnelles indiquées dans les deux actes.</p></div><div class="proof-note__foot"><span>2026 → 2027</span><strong>Tarif à revoir</strong></div></div></div></section>
+
+    <section class="faq-section section" id="questions" aria-labelledby="faq-title"><div class="container faq-grid"><div><span class="section-number">05 / QUESTIONS FRÉQUENTES</span><h2 id="faq-title">Avant l’ouverture.</h2></div><div class="faq-list"><details><summary>Quand la bêta sera-t-elle disponible ? <span aria-hidden="true">+</span></summary><p>L’ouverture est prévue prochainement. Aucune date ferme n’est annoncée à ce stade. Vous pouvez demander à être recontacté dès que les premiers accès seront disponibles.</p></details><details><summary>Les données sont-elles déjà disponibles partout ? <span aria-hidden="true">+</span></summary><p>Non. Le référentiel est en cours de constitution et de revue. La disponibilité dépendra de la collectivité et du niveau de vérification de sa fiche ; chaque donnée affichée devra garder sa source et son état.</p></details><details><summary>Parnuit déclarera ou paiera la taxe pour nous ? <span aria-hidden="true">+</span></summary><p>Non. Parnuit vise à vous aider à retrouver les règles, les démarches et les échéances de vos établissements. La déclaration et le paiement restent effectués par votre équipe auprès des collectivités concernées.</p></details></div></div></section>
+
+    <section class="closing-section"><div class="container closing-grid"><div><span class="section-number">BÊTA PRIVÉE · BIENTÔT</span><h2>La prochaine saison se prépare maintenant.</h2><p>Parlez-nous de votre parc pour être informé des premiers accès à Parnuit.</p></div><div class="closing-action"><a class="button button--light" href="mailto:muller.tangae@gmail.com?subject=Acc%C3%A8s%20b%C3%AAta%20Parnuit&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%AAtre%20inform%C3%A9%20de%20l%27ouverture%20de%20la%20b%C3%AAta%20Parnuit.%0A%0ANom%20du%20groupe%20%3A%0ANombre%20d%27%C3%A9tablissements%20%3A%0ACommunes%20principales%20%3A%0A%0ABien%20%C3%A0%20vous%2C">Demander un accès bêta <span aria-hidden="true">↗</span></a><span>Ou écrivez à <a href="mailto:muller.tangae@gmail.com">muller.tangae@gmail.com</a></span></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-main"><div><a class="brand brand--footer" href="#haut" aria-label="Parnuit, retour en haut"><span class="brand__mark" aria-hidden="true"><span></span></span><span class="brand__word">parnuit<span>.</span></span></a><p>La taxe de séjour, établissement par établissement.</p></div><nav aria-label="Navigation de pied de page"><a href="#parcours">Parcours</a><a href="#referentiel">Référentiel</a><a href="#questions">Questions</a><a href="mailto:muller.tangae@gmail.com?subject=Contact%20Parnuit">Contact</a></nav></div><div class="container footer-bottom"><span>© 2026 Parnuit · Bêta en préparation</span><span>Aucun cookie de suivi</span></div></footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
