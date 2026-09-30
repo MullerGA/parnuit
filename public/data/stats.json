@@ -1,0 +1,39 @@
+{
+ "communes_catalogue": 32310,
+ "communes_geo": 34969,
+ "communes_catalogue_geo": 32282,
+ "deliberations": 2051,
+ "etab_classes": 20557,
+ "etab_classes_dans_catalogue": 20350,
+ "part_etab_catalogue": 0.9899,
+ "capacite_classee": 4358782,
+ "capacite_500": 2399237,
+ "part_capacite_500": 0.5504,
+ "etab_500": 10739,
+ "part_etab_500": 0.5224,
+ "base_500_site_reference": 488,
+ "base_500_portail": 455,
+ "base_500_collecteur_intercommunal": 324,
+ "base_500_frequence_declaration": {
+  "mensuelle": 273,
+  "quadrimestrielle": 30,
+  "trimestrielle": 68,
+  "inconnue": 76,
+  "autre": 34,
+  "semestrielle": 18,
+  "annuelle": 1
+ },
+ "base_500_editeurs": {
+  "3d_ouest": 170,
+  "nexpublica": 33,
+  "aloa": 12,
+  "nouveaux_territoires": 237,
+  "autre": 7,
+  "collectivite": 29,
+  "aucun": 12
+ },
+ "controle_formule_total": {
+  "compared": 3225,
+  "match": 3225
+ }
+}

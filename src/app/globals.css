@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #142631;
+  --color-cream: #f2e9d9;
+  --color-coral: #d57753;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 48s linear infinite;
+}
+
+.range-brut {
+  appearance: none;
+  height: 10px;
+  background: linear-gradient(to right, #000 var(--pct, 50%), #fff var(--pct, 50%));
+  border: 2px solid #000;
+  cursor: pointer;
+}
+.range-brut::-webkit-slider-thumb {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  background: #ffe500;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+}
+.range-brut::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background: #ffe500;
+  border: 3px solid #000;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #000;
+}
+
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(40px, -30px, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-30px, 25px, 0) scale(0.95);
+  }
+}
+.aurora {
+  animation: aurora 18s ease-in-out infinite;
+}
