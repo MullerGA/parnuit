@@ -9,8 +9,8 @@ const sans = Geist({ subsets: ["latin"], variable: "--font-hub" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-hub-mono" });
 
 export const metadata: Metadata = {
-  title: "Cinq pages produit",
-  description: "Cinq angles de vente pour la page produit de Parnuit, construits sur les vraies données de taxe de séjour.",
+  title: "Six pages produit",
+  description: "Six angles de vente pour la page produit de Parnuit, construits sur les vraies données de taxe de séjour.",
 };
 
 const facts = [
@@ -38,10 +38,10 @@ const facts = [
 ];
 
 const decide = [
-  "Les prix affichés dans les versions 3 et 4 (9 € et 15 € par établissement et par mois, −15 % dès 10, −25 % dès 50) reprennent les hypothèses du business plan.",
-  "« Gratuit pendant la bêta » et « premiers accès pour les groupes de cinq établissements et plus » sont des engagements commerciaux à confirmer.",
-  "Le formulaire enregistre la demande côté serveur ; l'envoi direct par email s'active avec une clé Resend valide (RESEND_API_KEY, BETA_NOTIFY_EMAIL). En attendant, il ouvre la messagerie du visiteur avec la demande préremplie.",
-  "Les établissements des démos sont fictifs ; les communes, tarifs, collecteurs, portails et échéances sont réels et sourcés.",
+  "La version 6 est publiée sur parnuit.vercel.app : c'est le lien à envoyer. Les autres versions restent ici pour comparaison.",
+  "Les demandes de la version 6 sont enregistrées dans un stockage privé à Paris et consultables sur /demandes (mot de passe). L'alerte par email s'activera avec une clé Resend valide.",
+  "Le diagnostic 2027 offert engage à renvoyer, pour chaque établissement, tarif, collecteur, portail et calendrier : la base de travail le permet, à préparer à la main pour les premiers groupes.",
+  "Les prix (9 € et 15 € par établissement et par mois, −15 % dès 10, −25 % dès 50), la gratuité de la bêta et l'éditeur du site (mentions légales) restent à confirmer.",
 ];
 
 export default function Home() {
@@ -50,20 +50,21 @@ export default function Home() {
       <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 sm:px-8">
         <Logo size={28} />
         <span className="font-[family-name:var(--font-hub-mono)] text-[11.5px] uppercase tracking-[0.14em] text-[#142631]/50">
-          Studio · 30 septembre 2026
+          Studio · 1er octobre 2026
         </span>
       </header>
 
       <section className="mx-auto max-w-7xl px-5 pt-10 pb-14 sm:px-8 sm:pt-16">
         <p className="font-[family-name:var(--font-hub-mono)] text-[12px] uppercase tracking-[0.16em] text-[#D57753]">
-          Récapitulatif · 5 versions
+          Récapitulatif · 6 versions
         </p>
         <h1 className="mt-4 max-w-4xl text-[clamp(40px,6vw,80px)] font-semibold leading-[0.98] tracking-[-0.05em]">
-          Cinq pages produit pour vendre Parnuit.
+          Six pages produit pour vendre Parnuit.
         </h1>
         <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-[#142631]/70">
-          Cinq angles de vente, cinq styles, cinq façons d'animer. Toutes reposent sur les vraies données de la base : les tarifs officiels
-          de 32 310 communes et les 500 communes les plus touristiques documentées. Le nom et le logo sont conservés.
+          La version 6 reprend le meilleur des cinq premières et peut être envoyée aux groupes dès maintenant. Toutes reposent sur les
+          vraies données de la base : les tarifs officiels de 32 310 communes et les 500 communes les plus touristiques documentées. Le nom
+          et le logo sont conservés.
         </p>
       </section>
 
@@ -109,6 +110,11 @@ export default function Home() {
                   </div>
                 ))}
               </dl>
+              {v.n === 6 && (
+                <span className="mt-5 self-start rounded-full bg-[#D57753]/12 px-3 py-1 text-[12.5px] font-semibold text-[#B4532F]">
+                  Recommandée · à envoyer aux groupes
+                </span>
+              )}
               <span className="mt-6 inline-flex items-center gap-2 self-start rounded-full bg-[#142631] px-4 py-2.5 text-[14px] font-medium text-[#F2E9D9] transition group-hover:bg-[#D57753]">
                 Ouvrir la version {v.n} <span className="transition group-hover:translate-x-0.5">→</span>
               </span>

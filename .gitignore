@@ -44,3 +44,4 @@ next-env.d.ts
 
 # données sources téléchargées
 scripts/.cache/
+.leads-password

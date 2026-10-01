@@ -12,6 +12,18 @@ export type Version = {
 
 export const versions: Version[] = [
   {
+    slug: "vitrine",
+    n: 6,
+    name: "La synthèse",
+    angle:
+      "La structure complète de « La plateforme », portée par l'argument de « La facture invisible », avec une touche du « Grand rangement ». L'appel à l'action devient un diagnostic 2027 offert.",
+    pitch: "La taxe de séjour vous coûte plus cher que la taxe.",
+    lever: "Le coût caché chiffré, prouvé par les vraies données, puis une offre concrète et sans risque à saisir avant le 1er janvier.",
+    style: "Premium lumineux aux couleurs de la marque, marine et corail, quelques notes manuscrites.",
+    motion: "Ticket qui s'imprime, calculateur, avant/après à glisser, tableau de bord vivant, recherche d'une commune réelle.",
+    audience: "DAF, comptabilité et direction des opérations des groupes d'hébergement",
+  },
+  {
     slug: "demo",
     n: 1,
     name: "Le parc en direct",

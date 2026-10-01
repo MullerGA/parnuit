@@ -1,10 +1,11 @@
-# Parnuit — studio de pages produit
+# Parnuit — vitrine et studio de pages produit
 
-Cinq versions de la page produit de Parnuit, chacune avec son angle de vente, son style et ses animations, et une page de récapitulatif pour les comparer. Application Next.js 16 (App Router, Tailwind CSS 4), sans base de données.
+Six versions de la page produit de Parnuit et une page de récapitulatif pour les comparer. La version 6, qui reprend le meilleur des cinq premières, est la vitrine publique : elle sert la racine de [parnuit.vercel.app](https://parnuit.vercel.app/). Application Next.js 16 (App Router, Tailwind CSS 4).
 
 | Route | Version | Angle |
 | --- | --- | --- |
 | `/` | Récapitulatif | Les cinq versions, les chiffres utilisés et leurs sources, les points à trancher |
+| `/vitrine` | 6 · La synthèse | Le coût caché chiffré, la plateforme complète, les vraies données et un diagnostic 2027 offert |
 | `/demo` | 1 · Le parc en direct | Démo interactive : le visiteur tape ses communes, les vraies données s'affichent |
 | `/nuit` | 2 · Par nuit. | Récit au défilement, carte WebGL des 34 969 communes |
 | `/calcul` | 3 · La facture invisible | Calculateur du coût caché de la gestion à la main |
@@ -37,10 +38,25 @@ node scripts/cal-check.mts              # contrôle du calcul des échéances
 
 Le total d'un tarif applique les taxes additionnelles du catalogue (département 10 %, Société des grands projets 15 %, lignes à grande vitesse 34 %, Île-de-France Mobilités 200 %). La formule est contrôlée contre les 3 225 totaux officiels de l'Open Data DELTA 2026 (`controle_formule_total` dans `stats.json`). Les chiffres cités et leur calcul sont listés dans `src/lib/facts.ts` et sur la page de récapitulatif.
 
-## Formulaire bêta
+## Deux modes, un seul code
+
+| Projet Vercel | `SITE_MODE` | Comportement |
+| --- | --- | --- |
+| `parnuit` (production, branche `main`) | `vitrine` | `/` affiche la version 6 ; `/vitrine` et les pages du studio redirigent vers `/` ; pages indexables, `robots.txt` et `sitemap.xml` ouverts |
+| `parnuit-studio` | vide | `/` est le récapitulatif, les six versions sont accessibles avec la barre de comparaison, rien n'est indexé |
+
+Les fonctions serveur tournent à Paris (`regions: cdg1` dans `vercel.json`).
+
+## Demandes de diagnostic
+
+Le formulaire de la version 6 poste en `multipart/form-data` vers `/api/beta` : validation Zod, champ piège anti-robots, pièce jointe facultative (CSV, Excel, ODS, PDF ou texte, 4 Mo au plus) et origine du lien (`?source=`, `utm_source` ou `ref`, à ajouter aux liens envoyés pour savoir quel envoi a converti). Chaque demande est enregistrée dans le magasin Vercel Blob privé `parnuit-demandes` (région de Paris) et consultable sur `/demandes`, protégée par `LEADS_PASSWORD`. Si `RESEND_API_KEY` et `BETA_NOTIFY_EMAIL` sont définies, une alerte part aussi par email. Sans stockage ni email, le navigateur ouvre la messagerie du visiteur avec la demande préremplie.
+
+## Formulaire bêta des versions 1 à 5
 
 Le formulaire poste vers `/api/beta` (validation Zod, champ piège anti-robots). Si `RESEND_API_KEY` et `BETA_NOTIFY_EMAIL` sont définies, la demande est envoyée par email ; sinon la route répond `fallback` et le navigateur ouvre la messagerie du visiteur avec la demande préremplie. Chaque demande est aussi écrite dans les journaux du serveur (`parnuit_beta_lead`). Variables dans `.env.example`.
 
 ## Déploiement
 
-Le récapitulatif est publié sur le projet Vercel `parnuit-studio` (`vercel deploy --prod`). La vitrine publique `parnuit.vercel.app` (branche `main`) n'est pas modifiée par cette branche.
+- Vitrine : fusion dans `main`, déployée automatiquement par l'intégration Git du projet `parnuit` (variables `SITE_MODE=vitrine`, `BLOB_READ_WRITE_TOKEN`, `LEADS_PASSWORD`, `BETA_NOTIFY_EMAIL` en production).
+- Studio : `vercel deploy --prod` depuis ce dossier, lié au projet `parnuit-studio`.
+- Carte de partage : `public/og-parnuit.png`, capture de la page `/og-card` du studio à 1200 × 630.

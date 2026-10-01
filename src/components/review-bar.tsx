@@ -43,21 +43,23 @@ export function ReviewBar() {
       <Link href="/" className="mr-1 whitespace-nowrap text-white/70 hover:text-white">
         ← Récap
       </Link>
-      {versions.map((v) => (
-        <Link
-          key={v.slug}
-          href={`/${v.slug}`}
-          aria-current={v.slug === current.slug ? "page" : undefined}
-          title={v.name}
-          className={
-            v.slug === current.slug
-              ? "grid size-7 place-items-center rounded-full bg-white font-semibold text-black"
-              : "grid size-7 place-items-center rounded-full text-white/70 hover:bg-white/10 hover:text-white"
-          }
-        >
-          {v.n}
-        </Link>
-      ))}
+      {[...versions]
+        .sort((a, b) => a.n - b.n)
+        .map((v) => (
+          <Link
+            key={v.slug}
+            href={`/${v.slug}`}
+            aria-current={v.slug === current.slug ? "page" : undefined}
+            title={v.name}
+            className={
+              v.slug === current.slug
+                ? "grid size-7 place-items-center rounded-full bg-white font-semibold text-black"
+                : "grid size-7 place-items-center rounded-full text-white/70 hover:bg-white/10 hover:text-white"
+            }
+          >
+            {v.n}
+          </Link>
+        ))}
       <span className="hidden whitespace-nowrap px-2 text-white/60 sm:inline">{current.name}</span>
       <button
         type="button"
