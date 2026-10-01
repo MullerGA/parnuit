@@ -1,23 +1,62 @@
-# Parnuit
+# Parnuit — vitrine et studio de pages produit
 
-Site public de préinscription à la bêta Parnuit pour les exploitants d'hébergements multi-sites.
+Six versions de la page produit de Parnuit et une page de récapitulatif pour les comparer. La version 6, qui reprend le meilleur des cinq premières, est la vitrine publique : elle sert la racine de [parnuit.vercel.app](https://parnuit.vercel.app/). Application Next.js 16 (App Router, Tailwind CSS 4).
+
+| Route | Version | Angle |
+| --- | --- | --- |
+| `/` | Récapitulatif | Les cinq versions, les chiffres utilisés et leurs sources, les points à trancher |
+| `/vitrine` | 6 · La synthèse | Le coût caché chiffré, la plateforme complète, les vraies données et un diagnostic 2027 offert |
+| `/demo` | 1 · Le parc en direct | Démo interactive : le visiteur tape ses communes, les vraies données s'affichent |
+| `/nuit` | 2 · Par nuit. | Récit au défilement, carte WebGL des 34 969 communes |
+| `/calcul` | 3 · La facture invisible | Calculateur du coût caché de la gestion à la main |
+| `/plateforme` | 4 · La plateforme | Page produit SaaS complète : fonctions, comparatif, tarifs, sécurité |
+| `/rangement` | 5 · Le grand rangement | Physique des papiers, avant/après, quiz sur de vraies communes |
 
 ## Développement
 
 ```bash
 pnpm install
 pnpm dev
+pnpm lint
 pnpm build
 ```
 
-Site statique construit avec Vite, sans compte, cookie analytique ni formulaire hébergé. Les boutons de demande d'accès ouvrent le client de messagerie du visiteur. Le parcours interactif est explicitement présenté comme une projection de la bêta et fonctionne sans données personnelles ni suivi. La carte de partage est générée localement par `python3 scripts/make-og.py` (Pillow requis pour la régénérer).
+## Données
 
-## Positionnement
+`public/data/` est produit par `scripts/build_data.py` à partir de la base de travail du dépôt [personnal-01](../personnal-01) (catalogue DGFiP converti, base des 500 communes, priorisation Atout France) et des centres des communes de geo.api.gouv.fr :
 
-Parnuit prépare une vue consolidée des tarifs, démarches et échéances de taxe de séjour par établissement. Le site annonce une bêta privée prochaine, sans date ferme, et ne présente pas l'application comme déjà accessible. Les fonctions décrites sont prévues pour cette bêta.
+```bash
+curl -sS 'https://geo.api.gouv.fr/communes?fields=code,nom,centre,population,codeDepartement&format=json&geometry=centre' -o scripts/.cache/geo-centres.json
+uv run scripts/build_data.py            # PARNUIT_DATA=/chemin/vers/personnal-01/data si besoin
+node scripts/cal-check.mts              # contrôle du calcul des échéances
+```
 
-La page s'adresse aux responsables financiers et d'exploitation de groupes hôteliers, résidences de tourisme, campings et villages de vacances. L'hypothèse commerciale est que la valeur récurrente vient du calendrier et des démarches du parc, avec un tarif sourcé comme preuve concrète. Cette hypothèse reste à vérifier avec des acheteurs.
+- `france.json` : toutes les communes, leur délibération au catalogue DGFiP d'octobre 2025 et ses tarifs 2026 ;
+- `base500.json` : les 500 communes documentées (collecteur, portail, échéances, tarifs, sources) ;
+- `sky.json` : coordonnées projetées pour la carte animée ;
+- `stats.json` : chiffres cités, recalculés à chaque exécution.
 
-Les chiffres de constitution du référentiel proviennent de la base de travail du 30 septembre 2026 : 500 communes prioritaires, 488 sites de référence repérés et 376 collecteurs probables. Les fiches sont en revue ; ces chiffres ne constituent ni un taux de couverture nationale ni un taux de publication vérifiée. En particulier, aucune source ne permet de revendiquer « plus de 95 % des communes couvertes » par Parnuit.
+Le total d'un tarif applique les taxes additionnelles du catalogue (département 10 %, Société des grands projets 15 %, lignes à grande vitesse 34 %, Île-de-France Mobilités 200 %). La formule est contrôlée contre les 3 225 totaux officiels de l'Open Data DELTA 2026 (`controle_formule_total` dans `stats.json`). Les chiffres cités et leur calcul sont listés dans `src/lib/facts.ts` et sur la page de récapitulatif.
 
-Le cas présenté compare les délibérations municipales de Carcassonne pour les tarifs [2026](https://www.carcassonne.org/sites/default/files/actes-administratifs-2025-07/D%C3%A9lib%2023.pdf) et [2027](https://www.carcassonne.org/sites/default/files/actes-administratifs-2026-06/D%C3%A9lib%2018.pdf). Il ne représente pas une couverture nationale.
+## Deux modes, un seul code
+
+| Projet Vercel | `SITE_MODE` | Comportement |
+| --- | --- | --- |
+| `parnuit` (production, branche `main`) | `vitrine` | `/` affiche la version 6 ; `/vitrine` et les pages du studio redirigent vers `/` ; pages indexables, `robots.txt` et `sitemap.xml` ouverts |
+| `parnuit-studio` | vide | `/` est le récapitulatif, les six versions sont accessibles avec la barre de comparaison, rien n'est indexé |
+
+Les fonctions serveur tournent à Paris (`regions: cdg1` dans `vercel.json`).
+
+## Demandes de diagnostic
+
+Le formulaire de la version 6 poste en `multipart/form-data` vers `/api/beta` : validation Zod, champ piège anti-robots, pièce jointe facultative (CSV, Excel, ODS, PDF ou texte, 4 Mo au plus) et origine du lien (`?source=`, `utm_source` ou `ref`, à ajouter aux liens envoyés pour savoir quel envoi a converti). Chaque demande est enregistrée dans le magasin Vercel Blob privé `parnuit-demandes` (région de Paris) et consultable sur `/demandes`, protégée par `LEADS_PASSWORD`. Si `RESEND_API_KEY` et `BETA_NOTIFY_EMAIL` sont définies, une alerte part aussi par email. Sans stockage ni email, le navigateur ouvre la messagerie du visiteur avec la demande préremplie.
+
+## Formulaire bêta des versions 1 à 5
+
+Le formulaire poste vers `/api/beta` (validation Zod, champ piège anti-robots). Si `RESEND_API_KEY` et `BETA_NOTIFY_EMAIL` sont définies, la demande est envoyée par email ; sinon la route répond `fallback` et le navigateur ouvre la messagerie du visiteur avec la demande préremplie. Chaque demande est aussi écrite dans les journaux du serveur (`parnuit_beta_lead`). Variables dans `.env.example`.
+
+## Déploiement
+
+- Vitrine : fusion dans `main`, déployée automatiquement par l'intégration Git du projet `parnuit` (variables `SITE_MODE=vitrine`, `BLOB_READ_WRITE_TOKEN`, `LEADS_PASSWORD`, `BETA_NOTIFY_EMAIL` en production).
+- Studio : `vercel deploy --prod` depuis ce dossier, lié au projet `parnuit-studio`.
+- Carte de partage : `public/og-parnuit.png`, capture de la page `/og-card` du studio à 1200 × 630.
